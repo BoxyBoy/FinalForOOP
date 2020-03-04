@@ -3,7 +3,7 @@ package com.example.finalprojectminigame;
 import java.util.ArrayList;
 
 public class Vocab {
-    // list of worng answers for the game. Allows for organization and easy to build on top of.
+    // list of wrong answers for the game. Allows for organization and easy to build on top of.
     static ArrayList<String> wrongAnswers = new ArrayList<>();
 
     static void incorrectAnswers(){
