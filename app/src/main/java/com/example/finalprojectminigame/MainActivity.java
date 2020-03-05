@@ -46,6 +46,7 @@ public class MainActivity extends AppCompatActivity {
         //if the entered guess is wrong
         if(wrongAnswers.contains(searchName.toUpperCase())) {
             guessResultView.append("\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likeness.get(wrongAnswers.indexOf(searchName.toUpperCase())) + "/6" );
+            guessResultView.setText(guessResultView.getText());
             guesses--;
             String guessAmount = guesses + " attempt(s) left:";
             //ticks down a guess when wrong

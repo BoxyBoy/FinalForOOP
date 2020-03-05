@@ -10,7 +10,7 @@ public enum Symbols {
     SINGLE_QUOTE("'"),
     COMMA(","),
     FORWARD_SLASH("/"),
-    EXCLAIMATION_POINT("!"),
+    EXCLAMATION_POINT("!"),
     DOLLAR_SIGN("$"),
     HASH_TAG("#"),
     GREATER_THAN(">"),
