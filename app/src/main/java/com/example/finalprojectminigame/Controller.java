@@ -29,6 +29,7 @@ public class Controller {
         //if the entered guess is wrong
         if(wrongAnswers.contains(searchName.toUpperCase())) {
             guessResultView.append(userGuessResponse());
+            guessResultView.setText(guessResultView.getText());
             guesses--;
             String guessAmount = guesses + " attempt(s) left:";
             //ticks down a guess when wrong
