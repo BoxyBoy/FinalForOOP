@@ -44,6 +44,7 @@ public class Controller {
             buttonCheck.setEnabled(false);
             return;
         }
+
         //this removes a wrong answer when the correct "command" is entered. Does not use a guess.
         //String searchBracket = guessInput.getText().toString();
         if(bracketCommands.contains(searchBracket)){
