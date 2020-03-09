@@ -8,7 +8,9 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import static com.example.finalprojectminigame.BracketCommands.resetTries;
+import static com.example.finalprojectminigame.Vocab.answers;
 import static com.example.finalprojectminigame.Vocab.correctAnswer;
+import static com.example.finalprojectminigame.Vocab.incorrectAnswers;
 import static com.example.finalprojectminigame.Vocab.likeness;
 import static com.example.finalprojectminigame.Vocab.wrongAnswers;
 import static com.example.finalprojectminigame.BracketCommands.bracketCommands;
