@@ -1,8 +1,5 @@
 package com.example.finalprojectminigame;
 
-import android.content.Intent;
-
-import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class Prompt {

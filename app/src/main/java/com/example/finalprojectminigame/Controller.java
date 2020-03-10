@@ -6,6 +6,10 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import static com.example.finalprojectminigame.BracketCommands.bracketCommands;
+import static com.example.finalprojectminigame.VocabEasy.likenessEasy;
+import static com.example.finalprojectminigame.VocabEasy.wrongEasyAnswers;
+import static com.example.finalprojectminigame.VocabHard.likenessHard;
+import static com.example.finalprojectminigame.VocabHard.wrongHardAnswers;
 import static com.example.finalprojectminigame.VocabMedium.correctAnswer;
 import static com.example.finalprojectminigame.VocabMedium.likenessMedium;
 import static com.example.finalprojectminigame.VocabMedium.wrongMediumAnswers;
@@ -13,13 +17,15 @@ import static com.example.finalprojectminigame.VocabMedium.wrongMediumAnswers;
 public class Controller {
     public TextView guessAmountView, terminalView, guessResultView, guessInput;
     public Button buttonCheck;
+    public String difficulty;
 
-    public Controller(TextView guessInput, TextView guessAmountView, TextView terminalView, TextView guessResultView, Button buttonCheck){
+    public Controller(TextView guessInput, TextView guessAmountView, TextView terminalView, TextView guessResultView, Button buttonCheck, String difficulty){
         this.guessInput = guessInput;
         this.guessAmountView = guessAmountView;
         this.terminalView = terminalView;
         this.guessResultView = guessResultView;
         this.buttonCheck = buttonCheck;
+        this.difficulty = difficulty;
     }
     int guesses = 4;
 
@@ -27,16 +33,17 @@ public class Controller {
     String searchName;
     String searchBracket;
 
-    Prompt p = new Prompt();
     //literally the entire game | Checks to see if the user's guess is correct or if it is one of the "bracket commands"
 
     public void buttonCode(){
+
         searchName = guessInput.getText().toString();
         searchBracket = guessInput.getText().toString();
         Prompt p = new Prompt();
+
         //if the entered guess is wrong
         if(wrongMediumAnswers.contains(searchName.toUpperCase())) {
-            guessResultView.append(userGuessResponse());
+            guessResultView.append(userGuessResponse(difficulty));
             guessResultView.setText(guessResultView.getText());
             guesses--;
             String guessAmount = guesses + " attempt(s) left:";
@@ -96,7 +103,17 @@ public class Controller {
         return "\n>" + searchName + "\n>ACCESS GRANTED!";
     }
 
-    private String userGuessResponse(){
-        return "\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likenessMedium.get(wrongMediumAnswers.indexOf(searchName.toUpperCase())) + "/6";
+    public String outputString;
+
+    private String userGuessResponse(String difficulty){
+
+        if (difficulty.equals("easy")) {
+            outputString = "\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likenessEasy.get(wrongEasyAnswers.indexOf(searchName.toUpperCase())) + "/4";
+        } else if (difficulty.equals("medium")) {
+           outputString = "\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likenessMedium.get(wrongMediumAnswers.indexOf(searchName.toUpperCase())) + "/6";
+        } else if (difficulty.equals("hard")) {
+            outputString = "\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likenessHard.get(wrongHardAnswers.indexOf(searchName.toUpperCase())) + "/8";
+        }
+        return outputString;
     }
 }

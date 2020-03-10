@@ -19,9 +19,6 @@ public class MainActivity extends AppCompatActivity {
     VocabHard hardGame = new VocabHard(); //LOGAN PLEASE USE THESE AND NOT STATIC CALLS!!!! -BRAXTON
     BracketCommands bracketCommands = new BracketCommands();
     Controller controller;
-    int guesses = 4;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         guessResultView = findViewById(R.id.guessResultView);
         guessInput = findViewById(R.id.guessInput);
         buttonCheck = findViewById(R.id.buttonCheck);
-        controller = new Controller(guessInput, guessAmountView, terminalView, guessResultView, buttonCheck);
+        controller = new Controller(guessInput, guessAmountView, terminalView, guessResultView, buttonCheck, difficulty);
 
         // main textview is 20 characters wide and 18 strings tall
         //sets the textview at the start of the game
