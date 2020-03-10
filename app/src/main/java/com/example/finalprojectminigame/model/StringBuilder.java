@@ -1,4 +1,6 @@
-package com.example.finalprojectminigame;
+package com.example.finalprojectminigame.model;
+
+import com.example.finalprojectminigame.Symbols;
 
 import java.util.Random;
 

@@ -1,33 +1,41 @@
 package com.example.finalprojectminigame;
 
 
-import android.view.View;
+
 import android.widget.Button;
 import android.widget.TextView;
 
 import static com.example.finalprojectminigame.BracketCommands.bracketCommands;
-import static com.example.finalprojectminigame.Vocab.correctAnswer;
-import static com.example.finalprojectminigame.Vocab.likeness;
-import static com.example.finalprojectminigame.Vocab.wrongAnswers;
+import static com.example.finalprojectminigame.VocabMedium.correctAnswer;
+import static com.example.finalprojectminigame.VocabMedium.likenessMedium;
+import static com.example.finalprojectminigame.VocabMedium.wrongMediumAnswers;
 
 public class Controller {
-    int guesses = 4;
-
     public TextView guessAmountView, terminalView, guessResultView, guessInput;
-
     public Button buttonCheck;
 
-    String searchName = guessInput.getText().toString();
-    String searchBracket = guessInput.getText().toString();
+    public Controller(TextView guessInput, TextView guessAmountView, TextView terminalView, TextView guessResultView, Button buttonCheck){
+        this.guessInput = guessInput;
+        this.guessAmountView = guessAmountView;
+        this.terminalView = terminalView;
+        this.guessResultView = guessResultView;
+        this.buttonCheck = buttonCheck;
+    }
+    int guesses = 4;
+
+
+    String searchName;
+    String searchBracket;
 
     Prompt p = new Prompt();
-
     //literally the entire game | Checks to see if the user's guess is correct or if it is one of the "bracket commands"
 
     public void buttonCode(){
+        searchName = guessInput.getText().toString();
+        searchBracket = guessInput.getText().toString();
         Prompt p = new Prompt();
         //if the entered guess is wrong
-        if(wrongAnswers.contains(searchName.toUpperCase())) {
+        if(wrongMediumAnswers.contains(searchName.toUpperCase())) {
             guessResultView.append(userGuessResponse());
             guessResultView.setText(guessResultView.getText());
             guesses--;
@@ -50,11 +58,11 @@ public class Controller {
         //String searchBracket = guessInput.getText().toString();
         if(bracketCommands.contains(searchBracket)){
             guessResultView.append(dudRemoveResponse());
-            for(int i = 0;i<wrongAnswers.size();i++){
-                if(wrongAnswers.get(i).equals("......")){
+            for(int i = 0;i<wrongMediumAnswers.size();i++){
+                if(wrongMediumAnswers.get(i).equals("......")){
                     continue;
                 }
-                wrongAnswers.set(i, "......");
+                wrongMediumAnswers.set(i, "......");
                 break;
             }
             terminalView.setText(p.thePrompt);
@@ -89,6 +97,6 @@ public class Controller {
     }
 
     private String userGuessResponse(){
-        return "\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likeness.get(wrongAnswers.indexOf(searchName.toUpperCase())) + "/6";
+        return "\n>" + searchName.toUpperCase() + "\n>ACCESS DENIED\n>LIKENESS = " + likenessMedium.get(wrongMediumAnswers.indexOf(searchName.toUpperCase())) + "/6";
     }
 }
