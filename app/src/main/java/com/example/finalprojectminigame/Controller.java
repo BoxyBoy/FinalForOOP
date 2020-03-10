@@ -43,6 +43,7 @@ public class Controller {
 
         //if the entered guess is wrong
         //TODO Make if statement that checks for difficulty here and change wrong.....Answers to the correct names.
+
         if(wrongMediumAnswers.contains(searchName.toUpperCase())) {
             guessResultView.append(userGuessResponse(difficulty));
             guessResultView.setText(guessResultView.getText());
