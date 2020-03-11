@@ -9,7 +9,7 @@ public class VocabEasy implements Difficulty {
     // list of wrong easyAnswers for the game. Allows for organization and easy to build on top of.
     public static ArrayList<String> wrongEasyAnswers = new ArrayList<>();
     static ArrayList<String> easyAnswers = new ArrayList<>();
-    public static String correctAnswer;
+    public static String correctEasyAnswer;
 
     @Override
     public void incorrectAnswers(){
@@ -38,7 +38,7 @@ public class VocabEasy implements Difficulty {
 
         for (int i = 0; i < easyAnswers.size(); i++) {
             if (!wrongEasyAnswers.contains(easyAnswers.get(i))) {
-                correctAnswer = easyAnswers.get(i);
+                correctEasyAnswer = easyAnswers.get(i);
             }
         }
     }
@@ -49,7 +49,7 @@ public class VocabEasy implements Difficulty {
     static void theLikenessValues(){
 
         for (int i = 0; i < wrongEasyAnswers.size(); i++) {
-            String tempString = correctAnswer;
+            String tempString = correctEasyAnswer;
             for (int j = 0; j < wrongEasyAnswers.get(i).length(); j++) {
                 String character = String.valueOf(wrongEasyAnswers.get(i).charAt(j));
                 if (tempString.contains(character)) {

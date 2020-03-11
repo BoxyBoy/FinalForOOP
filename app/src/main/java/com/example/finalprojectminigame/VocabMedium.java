@@ -9,7 +9,7 @@ public class VocabMedium implements Difficulty {
     // list of wrong mediumAnswers for the game. Allows for organization and easy to build on top of.
     public static ArrayList<String> wrongMediumAnswers = new ArrayList<>();
     static ArrayList<String> mediumAnswers = new ArrayList<>();
-    public static String correctAnswer;
+    public static String correctMediumAnswer;
 
     @Override
     public void incorrectAnswers(){
@@ -38,7 +38,7 @@ public class VocabMedium implements Difficulty {
 
         for (int i = 0; i < mediumAnswers.size(); i++) {
             if (!wrongMediumAnswers.contains(mediumAnswers.get(i))) {
-                correctAnswer = mediumAnswers.get(i);
+                correctMediumAnswer = mediumAnswers.get(i);
             }
         }
     }
@@ -50,7 +50,7 @@ public class VocabMedium implements Difficulty {
     static void theLikenessValues(){
 
         for (int i = 0; i < wrongMediumAnswers.size(); i++) {
-            String tempString = correctAnswer;
+            String tempString = correctMediumAnswer;
             for (int j = 0; j < wrongMediumAnswers.get(i).length(); j++) {
                String character = String.valueOf(wrongMediumAnswers.get(i).charAt(j));
                if (tempString.contains(character)) {

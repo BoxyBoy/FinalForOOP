@@ -7,11 +7,11 @@ public class Prompt {
     ArrayList<String> bracketCommands = BracketCommands.bracketCommands;
     String resetTries = BracketCommands.resetTries;
     ArrayList<String> wrongEasyAnswers = VocabEasy.wrongEasyAnswers;
-    String correctEasyAnswer = VocabEasy.correctAnswer;
+    String correctEasyAnswer = VocabEasy.correctEasyAnswer;
     ArrayList<String> wrongMediumAnswers= VocabMedium.wrongMediumAnswers;
-    String correctMediumAnswer = VocabMedium.correctAnswer;
+    String correctMediumAnswer = VocabMedium.correctMediumAnswer;
     ArrayList<String> wrongHardAnswers = VocabHard.wrongHardAnswers;
-    String correctHardAnswer = VocabHard.correctAnswer;
+    String correctHardAnswer = VocabHard.correctHardAnswer;
 
 
     String thePrompt;

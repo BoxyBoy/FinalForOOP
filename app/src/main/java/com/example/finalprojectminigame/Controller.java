@@ -10,7 +10,7 @@ import static com.example.finalprojectminigame.VocabEasy.likenessEasy;
 import static com.example.finalprojectminigame.VocabEasy.wrongEasyAnswers;
 import static com.example.finalprojectminigame.VocabHard.likenessHard;
 import static com.example.finalprojectminigame.VocabHard.wrongHardAnswers;
-import static com.example.finalprojectminigame.VocabMedium.correctAnswer;
+import static com.example.finalprojectminigame.VocabMedium.correctMediumAnswer;
 import static com.example.finalprojectminigame.VocabMedium.likenessMedium;
 import static com.example.finalprojectminigame.VocabMedium.wrongMediumAnswers;
 
@@ -33,8 +33,6 @@ public class Controller {
     String searchName;
     String searchBracket;
 
-    //literally the entire game | Checks to see if the user's guess is correct or if it is one of the "bracket commands"
-
     public void buttonCode(){
 
         searchName = guessInput.getText().toString();
@@ -42,7 +40,6 @@ public class Controller {
         Prompt p = new Prompt();
 
         //if the entered guess is wrong
-        //TODO Make if statement that checks for difficulty here and change wrong.....Answers to the correct names.
 
         if(wrongMediumAnswers.contains(searchName.toUpperCase())) {
             guessResultView.append(userGuessResponse(difficulty));
@@ -54,10 +51,14 @@ public class Controller {
                 guessAmount += " []";
             }
             guessAmountView.setText(guessAmount);
+            if(guesses == 0){
+                guessResultView.append("\n>ALL ATTEMPTS EXPENDED. LOCKING DOWN.");
+                buttonCheck.setEnabled(false);
+            }
             return;
         }
         //if the guess is correct
-        else if(searchName.toUpperCase().equals(correctAnswer)){
+        else if(searchName.toUpperCase().equals(correctMediumAnswer)){
             guessResultView.append(winMessage());
             buttonCheck.setEnabled(false);
             return;
